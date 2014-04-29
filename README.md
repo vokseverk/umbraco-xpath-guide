@@ -2,6 +2,10 @@
 
 A guide to writing XPath expressions for the many types of property editors in Umbraco.
 
+## Contents
+
+[Introduction](intro/index.md)
+
 
 ## Todo
 
