@@ -73,3 +73,35 @@ which is actually shorthand for this:
 ```xml
 <movie id="4815162342">...</movie>
 ```
+
+As you can see, a *predicate* is a filter that affects the selection preceding it. So in this case, the initial selection is all `<movie>` nodes that are children of the `<movies>` node - but then by applying the predicate we're narrowing down the number of matching nodes; In this case to a single one.
+
+A predicate is essentially an expression returning either `true()` or `false()`, which means you can do stuff like asking for movies with a specific feature:
+
+	movies/movie[@in3D = 'yes']
+
+### Result
+
+```xml
+<movie id="314" in3D="yes">...</movie>
+```
+
+Or maybe something like this, using a function call:
+
+	movies/movie[starts-with(title, 'The')]
+	
+### Result
+
+```xml
+<movie id="4815162342">
+	<title>The Numbers Are Bad</title>
+</movie>
+<movie id="42">
+	<title>The Hitchhiker's Guide to the Galaxy</title>
+</movie>
+```
+
+Note that **title** used inside the function is, in itself, an XPath - evaluated relative to the *current context,* which is a movie element, since that's what the predicate is "attached" to.
+
+
+
