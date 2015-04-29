@@ -1,4 +1,4 @@
-# How XPath works
+# XPath Basics
 
 XPath is used to select nodes or values from an XML document, very similar to how SQL is used to select data form a database. However, with SQL you're always selecting "from the top", so to speak, whereas in XPath, you have a *context node* that your expression is evaluated from.
 
@@ -19,6 +19,8 @@ We'll work with a simple XML document that looks like this:
 	</movie>
 </movies>
 ```
+
+
 
 ## Simple steps
 
@@ -58,11 +60,11 @@ It may be a little unexpected, but the result is a nodeset with **three nodes**;
 
 To select only the first movie we can use a *positional* predicate:
 
-	movies/movie[position() = 1]
-
-which we'll quickly shorten to this:
-
 	movies/movie[1]
+
+which is actually shorthand for this:
+
+	movies/movie[position() = 1]
 
 *(So the first element in a nodeset is referred to as being in "position one", not at "offset zero" - just to get that out of the way :-)*
 
